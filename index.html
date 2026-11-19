@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#05070d" />
+  <title>Biglietti · Stadio Angelo Massimino</title>
+  <link rel="icon" href="./img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <!-- HOME -->
+  <section id="home">
+    <div class="hero" style="background-image:url(./img/hero.jpg)"></div>
+    <header class="hbar">
+      <img class="crest" src="./img/logo.png" onerror="this.onerror=null;this.src='./img/logo-placeholder.svg'" alt="Catania" />
+      <div><b>Biglietteria</b><small>Stadio Angelo Massimino · Catania</small></div>
+      <nav><a>Partite</a><a>Abbonamenti</a><a>Info stadio</a></nav>
+    </header>
+    <div class="hcopy">
+      <span class="kick">STAGIONE 2026/27</span>
+      <h1>Scegli la partita.<br /><em>Scegli il tuo posto.</em></h1>
+      <p>Esplora il Massimino in 3D, seleziona settore, fila e seggiolino e guarda il campo esattamente da dove sarai seduto.</p>
+    </div>
+    <div id="cards" class="cards"></div>
+    <footer class="hfoot">Pagamento sicuro · Biglietto digitale con QR · Versione demo</footer>
+  </section>
+
+  <!-- APP 3D -->
+  <section id="app" class="hidden">
+    <header class="top">
+      <button id="back" class="round" aria-label="Indietro">←</button>
+      <img class="crest sm" src="./img/logo.png" onerror="this.onerror=null;this.src='./img/logo-placeholder.svg'" alt="" />
+      <div class="match"><b id="mt"></b><small id="ms"></small></div>
+      <ol id="crumbs" class="crumbs"><li data-k="0">Settore</li><li data-k="1">Fila</li><li data-k="2">Posto</li><li data-k="3">Vista</li></ol>
+      <button id="cartBtn" class="cartbtn" aria-label="Carrello">🎟 <span id="cartN">0</span></button>
+    </header>
+
+    <aside id="legend" class="legend">
+      <h3>Settori</h3>
+      <div id="secList"></div>
+      <div class="keys"><span><i class="k free"></i>Libero</span><span><i class="k sold"></i>Venduto</span><span><i class="k sel"></i>Selezionato</span></div>
+    </aside>
+
+    <div id="hint" class="hint"></div>
+    <div id="tip" class="tip hidden"></div>
+
+    <div id="viewbar" class="viewbar hidden">
+      <button id="prevSeat" class="pill">‹</button>
+      <div class="vinfo"><small id="vSec"></small><b id="vSeat"></b><span id="vStats"></span></div>
+      <div class="vtype"><button data-t="0" class="on">Intero</button><button data-t="1">Ridotto</button></div>
+      <div class="vprice" id="vPrice"></div>
+      <button id="nextSeat" class="pill">›</button>
+      <button id="addSeat" class="cta">Acquista</button>
+    </div>
+    <div id="drag" class="drag hidden">⟷ Trascina per guardarti intorno</div>
+
+    <div id="drawer" class="drawer">
+      <div class="dhead"><b>Il tuo carrello</b><button id="closeCart" class="round sm">✕</button></div>
+      <div id="cartBody"></div>
+    </div>
+  </section>
+
+  <div id="loader" class="loader hidden"><div class="spin"></div><span>Accendo i fari…</span></div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
